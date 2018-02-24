@@ -1,0 +1,83 @@
+{
+  "French": "Europoean",
+  "British": "Europoean",
+  "European": "Europoean",
+  "Portuguese": "Europoean",
+  "Irish": "Europoean",
+  "Polish": "Europoean",
+  "Modern European": "Europoean",
+  "Continental": "Europoean",
+  "Belgian": "Europoean",
+
+  "Italian": "Italian",
+  "Pizza": "Italian",
+  "Deli": "Italian",
+  "Middle Eastern": "Mid East",
+  "Mediterranean": "Mid East",
+  "Hungarian": "Mid East",
+  "Afghani": "Mid East",
+  "Lebanese": "Mid East",
+
+  "Bubble Tea": "Drinks and Dessert",
+  "Juices": "Drinks and Dessert",
+  "Bakery": "Drinks and Dessert",
+  "Desserts": "Drinks and Dessert",
+
+  "Drinks Only": "Bars",
+  "Pub Food": "Bars",
+
+  "Fusion": "Asian",
+  "Asian": "Asian",
+  "Vietnamese": "Asian",
+  "Korean": "Asian",
+  "Soul Food": "Asian",
+  "Asian Fusion": "Asian",
+  "Filipino": "Asian",
+
+  "Indian": "South Asian",
+  "Thai": "South Asian",
+
+  "Northern Chinese": "Chinese",
+  "Dim Sum": "Chinese",
+  "Chinese Hakka": "Chinese",
+  "Chinese Cantonese": "Chinese",
+
+  "Ramen": "Japanese",
+  "Sushi": "Japanese",
+  "Japanese": "Japanese",
+
+  "Jamaican": "African",
+  "Latin American": "African",
+  "Caribbean": "African",
+  "African": "African",
+
+  "Southern": "North American",
+  "Diner": "North American",
+  "Canadian": "North American",
+  "Seafood": "North American",
+  "American": "North American",
+
+  "Tapas": "Mexican",
+  "Mexican": "Mexican",
+  "Tex-Mex": "Mexican",
+
+  "Beverages": "Drinks",
+  "Tea": "Drinks",
+  "Cafe": "Drinks",
+  "Coffee and Tea": "Drinks",
+
+  "Steak": "Fast food",
+  "Burger": "Fast food",
+  "Grill": "Fast food",
+  "Bar Food": "Fast food",
+  "BBQ": "Fast food",
+  "Fish and Chips": "Fast food",
+  "Sandwich": "Fast food",
+  "Fast Food": "Fast food",
+  "Breakfast": "Fast food",
+
+  "International": "International",
+  
+  "Vegetarian": "Health",
+  "Healthy Food": "Health"
+}
