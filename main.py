@@ -1,14 +1,14 @@
 from copy import deepcopy
 from collections import defaultdict
+from traceback import print_exc
 
-from flask import Flask
+from flask import Flask, jsonify
 
 from data import *
 
 
 app = Flask(__name__)
 data = init_data()
-cuisines_type = get_cuisines(data)
 
 
 USER_DATA = {}
@@ -22,7 +22,7 @@ def init_user(user):
 	}
 
 
-@app.route('/l(ogin/<user>', methods=['GET'])
+@app.route('/login/<user>', methods=['GET'])
 def login(user):
 	message = 'logged in'
 	status_code = 201
@@ -34,7 +34,10 @@ def login(user):
 		message = 'Error logging in: {}'.format(str(e))
 		status_code = 500
 
-	return ({'message': message}, status_code)
+	res = jsonify({'message': message})
+	res.status_code = status_code
+
+	return res
 
 
 @app.route('/category/<user>/<category>', methods=['GET'])
@@ -54,10 +57,11 @@ def category(user, category):
 		status_code = 500
 
 	return_dict = {'message': message}
-	if status_code == 200:
-		return_dict.update({'cuisines': cuisines_type[category]})
 
-	return (return_dict, status_code)
+	res = jsonify(return_dict)
+	res.status_code = status_code
+
+	return res
 
 
 @app.route('/price/<user>/<min_>/<max_>', methods=['GET'])
@@ -69,20 +73,25 @@ def price(user, min_, max_):
 		if user not in USER_DATA.keys():
 			raise KeyError('Invalid user ' + category + '. Please login first')
 
-		USER_DATA[user]['price_range'] = (min_, max_)
+		USER_DATA[user]['price_range'] = (float(min_), float(max_))
 	except Exception as e:
+		print_exc()
 		message = 'Error setting price: {}'.format(str(e))
 		status_code = 500
 
 	try:
 		category = USER_DATA[user]['category']
 		price_range = USER_DATA[user]['price_range']
-		USER_DATA[user]['session'] = format_data(data[category], price_range)
+		USER_DATA[user]['session'] = format_data(data[category], price_range, USER_DATA[user]['prefs'])
 	except Exception as e:
+		print_exc()
 		message = 'Error formatting data: {}'.format(str(e))
 		status_code = 500
 
-	return ({'message': message, 'question': get_best_restaurant(USER_DATA[user]['session'])}, status_code)
+	res = jsonify({'message': message, 'question': USER_DATA[user]['session'][0]})
+	res.status_code = status_code
+
+	return res
 
 @app.route('/answer/<user>/<answer>', methods=['GET'])
 def answer(user, answer):
@@ -98,21 +107,25 @@ def answer(user, answer):
 			update_prefs(USER_DATA[user])
 			return_dict = {
 				'status': 'done',
-				'recommendations': get_recommendations(USER_DATA[user]['session'], USER_DATA[user]['price_range']) 
+				'recommendations': get_recommendations(USER_DATA[user]) 
 			}
 		else:
-			update_session(USER_DATA[user]['session'], USER_DATA[user]['price_range'])
+			update_session(USER_DATA[user])
 			return_dict = {
 				'status': 'question',
-				'question': get_best_restaurant(USER_DATA[user]['session'])
+				'question': USER_DATA[user]['session'][0]
 			}
 	except Exception as e:
+		print_exc()
 		message = 'Error answering question: {}'.format(str(e))
 		status_code = 500
 
 	return_dict.update({'message': message})
 
-	return (return_dict, status_code)
+	res = jsonify(return_dict)
+	res.status_code = status_code
+
+	return res
 
 if __name__ == '__main__':
   app.run(debug=True)

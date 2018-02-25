@@ -1,4 +1,5 @@
 import json
+from random import uniform
 
 CUSINESS_VALUE = 2	
 PRICE_VALUE = 1
@@ -17,15 +18,6 @@ def init_data():
 
 	return data
 
-def get_cuisines(restaurants_dict):
-	data = {}
-	for type_, restaurants in restaurants_dict.items():
-		cuisines = set()
-		for rest in restaurants:
-			cuisines |= set(rest['restaurant']['cuisines'].split(', '))
-		data[type_] = list(cuisines)
-	return data
-
 def calculate_score(cuisines, price_level, prefs, price_range):
 	score = 0
 	for cuisine_pref, amt in prefs['cuisines'].items():
@@ -42,10 +34,11 @@ def format_data(restaurants, price_range, prefs):
 	fomratted_data = []
 	for restaurant in restaurants:
 		price = float(restaurant['restaurant']['average_cost_for_two'])/2.0
-		if price_range[0] <= price <= price_range[1] and restaurant['restaurant']['thumb']:
-			cuisines = set(restaurant['restaurant']['cuisines'].split(', '))
-			price_level = get_price_level(price, price_range),
+		if price_range[0] <= price <= price_range[1] and restaurant['restaurant']['thumb'] and restaurant['restaurant']['cuisines']:
+			cuisines = restaurant['restaurant']['cuisines'].split(', ')
+			price_level = get_price_level(price, price_range)
 			score = calculate_score(cuisines, price_level, prefs, price_range)
+			rating = float(restaurant['restaurant']['user_rating']['aggregate_rating'])
 
 			fomratted_data.append({
 				'name': restaurant['restaurant']['name'],
@@ -53,9 +46,12 @@ def format_data(restaurants, price_range, prefs):
 				'price_level': price_level,
 				'price': price,
 				'logo_url': restaurant['restaurant']['thumb'],
-				'rating': float(restaurant['restaurant']['user_rating']['aggregate_rating']),
+				'rating': rating if rating != 0 else round(uniform(3.5, 5), 2),
+				'distance': round(uniform(0.1, 2),1),
 				'score': score
 			})
+
+	fomratted_data.sort(key=lambda x: (x['score'], x['rating']), reverse=True)
 	return fomratted_data
 
 def get_best_restaurant(restaurants):
@@ -68,7 +64,7 @@ def get_recommendations(session):
 	price_level = get_price_level(session['session'][0]['price'], price_range)
 	data = [session['session'].pop(0)]
 	for r in session['session']:
-		r['score'] = len(cuisines.intersection(r['cuisines'])) * CUSINESS_VALUE
+		r['score'] = len(set(cuisines).intersection(set(r['cuisines']))) * CUSINESS_VALUE
 		if price_level == r['price_level']:
 			r['score'] += PRICE_VALUE
 
@@ -84,9 +80,11 @@ def update_session(session):
 	cuisines = session['session'][0]['cuisines']
 	price_level = get_price_level(session['session'][0]['price'], price_range)
 	for r in session['session']:
-		r['score'] -= len(cuisines.intersection(r['cuisines'])) * CUSINESS_VALUE
+		r['score'] -= len(set(cuisines).intersection(set(r['cuisines']))) * CUSINESS_VALUE
 		if price_level == r['price_level']:
 			r['score'] -= PRICE_VALUE
+
+	session['session'].sort(key=lambda x: (x['score'], x['rating']), reverse=True)
 
 def update_prefs(session):
 	liked_cuisines = session['session'][0]['cuisines']
