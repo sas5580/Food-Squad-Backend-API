@@ -1062,50 +1062,6 @@
     {
       "restaurant": {
         "R": {
-          "res_id": 17753826
-        },
-        "apikey": "3229cddec64a60d2fc71942504cab364",
-        "id": "17753826",
-        "name": "Druxy's Famous Deli",
-        "url": "https://www.zomato.com/toronto/druxys-famous-deli-1-discovery-district?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "location": {
-          "address": "123 Edward Street, Toronto",
-          "locality": "Edward Street, Discovery District",
-          "city": "Toronto",
-          "city_id": 89,
-          "latitude": "43.6556510000",
-          "longitude": "-79.3870030000",
-          "zipcode": "",
-          "country_id": 37,
-          "locality_verbose": "Edward Street, Discovery District, Toronto"
-        },
-        "switch_to_order_menu": 0,
-        "cuisines": "Deli",
-        "average_cost_for_two": 25,
-        "price_range": 1,
-        "currency": "$",
-        "offers": [],
-        "thumb": "https://b.zmtcdn.com/data/res_imagery/8901129_CHAIN_41d4e83e5ea4f226be1267658fb0f5a0.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
-        "user_rating": {
-          "aggregate_rating": "0",
-          "rating_text": "Not rated",
-          "rating_color": "CBCBC8",
-          "votes": "0"
-        },
-        "photos_url": "https://www.zomato.com/toronto/druxys-famous-deli-1-discovery-district/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
-        "menu_url": "https://www.zomato.com/toronto/druxys-famous-deli-1-discovery-district/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
-        "featured_image": "https://b.zmtcdn.com/data/res_imagery/8901129_CHAIN_41d4e83e5ea4f226be1267658fb0f5a0.jpg",
-        "has_online_delivery": 0,
-        "is_delivering_now": 0,
-        "deeplink": "zomato://restaurant/17753826",
-        "has_table_booking": 0,
-        "events_url": "https://www.zomato.com/toronto/druxys-famous-deli-1-discovery-district/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "establishment_types": []
-      }
-    },
-    {
-      "restaurant": {
-        "R": {
           "res_id": 8905798
         },
         "apikey": "3229cddec64a60d2fc71942504cab364",
@@ -1320,50 +1276,6 @@
         "deeplink": "zomato://restaurant/8911392",
         "has_table_booking": 0,
         "events_url": "https://www.zomato.com/toronto/starbucks-7-discovery-district/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "establishment_types": []
-      }
-    },
-    {
-      "restaurant": {
-        "R": {
-          "res_id": 18528548
-        },
-        "apikey": "3229cddec64a60d2fc71942504cab364",
-        "id": "18528548",
-        "name": "Druxy's Famous Deli",
-        "url": "https://www.zomato.com/toronto/druxys-famous-deli-2-discovery-district?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "location": {
-          "address": "200 Elizabeth Street, Toronto M5G 2C4",
-          "locality": "Discovery District",
-          "city": "Toronto",
-          "city_id": 89,
-          "latitude": "43.6589860000",
-          "longitude": "-79.3880880000",
-          "zipcode": "M5G 2C4",
-          "country_id": 37,
-          "locality_verbose": "Discovery District"
-        },
-        "switch_to_order_menu": 0,
-        "cuisines": "",
-        "average_cost_for_two": 25,
-        "price_range": 1,
-        "currency": "$",
-        "offers": [],
-        "thumb": "https://b.zmtcdn.com/data/res_imagery/8901129_CHAIN_41d4e83e5ea4f226be1267658fb0f5a0.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
-        "user_rating": {
-          "aggregate_rating": "0",
-          "rating_text": "Not rated",
-          "rating_color": "CBCBC8",
-          "votes": "0"
-        },
-        "photos_url": "https://www.zomato.com/toronto/druxys-famous-deli-2-discovery-district/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
-        "menu_url": "https://www.zomato.com/toronto/druxys-famous-deli-2-discovery-district/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
-        "featured_image": "https://b.zmtcdn.com/data/res_imagery/8901129_CHAIN_41d4e83e5ea4f226be1267658fb0f5a0.jpg",
-        "has_online_delivery": 0,
-        "is_delivering_now": 0,
-        "deeplink": "zomato://restaurant/18528548",
-        "has_table_booking": 0,
-        "events_url": "https://www.zomato.com/toronto/druxys-famous-deli-2-discovery-district/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
         "establishment_types": []
       }
     },
