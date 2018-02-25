@@ -31,7 +31,7 @@ def ask_rest(rest):
 	return input('[yes/no]: ') == 'yes'
 
 
-if __name__ == '__main__':
+if __name__ == '__main__'	:
 	data = get_data()
 	rests = []
 	for restaurant in data['restaurants']:
